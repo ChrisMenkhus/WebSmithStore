@@ -1,14 +1,11 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-import NextCors from 'nextjs-cors';
+import Cors from 'micro-cors';
 
-export default async function handler(req, res) {
-	await NextCors(req, res, {
-		// Options
-		methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-		origin: '*',
-		optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-	});
+const cors = Cors({
+	allowMethods: ['POST', 'HEAD'],
+});
 
+async function handler(req, res) {
 	if (req.method === 'POST') {
 		try {
 			const session = await stripe.checkout.sessions.create({
@@ -28,3 +25,5 @@ export default async function handler(req, res) {
 		res.status(405).end('Method Not Allowed');
 	}
 }
+
+export default cors(handler);
