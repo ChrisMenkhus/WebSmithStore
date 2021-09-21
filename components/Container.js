@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 export function Container(p) {
+	useEffect(() => {
+		console.log('RE-RENDER: CONTAINER: ', p.id);
+	}, []);
+
 	return (
 		<Style
 			direction={p.direction}

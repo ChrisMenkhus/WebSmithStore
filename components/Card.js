@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-export function Card(p) {
-	const { data, formatToCurrency, addItemToCart, shoppingCart, setShoppingCart } = p;
+export function Card(data, formatToCurrency, clickhandler) {
 	return (
-		<Style>
+		<Style className="testtesttest">
 			<div id="base_container">
 				<div className="card_image" src="/icons/reader-outline.svg"></div>
 				<h1 className="card_title">{data.name[0].text}</h1>
@@ -13,37 +12,15 @@ export function Card(p) {
 				<h4 className="card_price">{formatToCurrency(data.price)}</h4>
 				<h1
 					className="card_add_to_cart_button"
-					onClick={() => {
-						addItemToCart(
-							{
-								name: data.name[0].text,
-								price: formatToCurrency(data.price),
-								price_id: data.price_id,
-								product_id: data.product_id,
-								has_quantity: data.has_quantity,
-								quantity: 1,
-							},
-							shoppingCart,
-							setShoppingCart
-						);
+					onClick={(e) => {
+						clickhandler(e);
 					}}>
 					Add to cart
 				</h1>
 				<img
 					className="card_cart_logo"
-					onClick={() => {
-						addItemToCart(
-							{
-								name: data.name[0].text,
-								price: formatToCurrency(data.price),
-								price_id: data.price_id,
-								product_id: data.product_id,
-								has_quantity: data.has_quantity,
-								quantity: 1,
-							},
-							shoppingCart,
-							setShoppingCart
-						);
+					onClick={(e) => {
+						clickhandler(e);
 					}}
 					src="/icons/cart_logo.svg"
 				/>

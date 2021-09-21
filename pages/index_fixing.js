@@ -6,7 +6,7 @@ import { Client } from '../prismic-config';
 import Head from 'next/head';
 import { Nav, PageWrapper, Container, Card, Button, BannerImage, SearchBar, FlexWrap } from '../components';
 import { ShoppingCart } from '../components/ShoppingCart';
-import ProductsView from '../components/ProductsView';
+
 // Page that is rendered at '/'
 export default function Home({ document }) {
 	// State variables (When these change the dom is re-rendered)
@@ -17,7 +17,7 @@ export default function Home({ document }) {
 	const [isMobile, setIsMobile] = useState(false);
 	const [searchText, setSearchText] = useState('');
 
-	resize(setIsMobile, setCartOpen);
+	resize(setIsMobile, 1100);
 
 	function updateFilter(value) {
 		setSearchText(value.toString());
@@ -54,6 +54,10 @@ export default function Home({ document }) {
 		saveToLocalStorage(shoppingCart);
 	}, [shoppingCart]);
 
+	function ProductsView() {
+		return <Container id="products_view" direction="column" maxWidth="800px" height="100%"></Container>;
+	}
+
 	return (
 		<>
 			<Head>
@@ -67,31 +71,7 @@ export default function Home({ document }) {
 				amountOfItemsInCart={shoppingCart.length > 0 ? shoppingCart.length : ''}
 			/>
 			<PageWrapper>
-				<main>
-					{isMobile
-						? !cartOpen
-							? ProductsView({
-									products,
-									filteredProducts,
-									setFilteredProducts,
-									searchText,
-									updateFilter,
-									shoppingCart,
-									setShoppingCart,
-									addItemToCart,
-							  })
-							: null
-						: ProductsView({
-								products,
-								filteredProducts,
-								setFilteredProducts,
-								searchText,
-								updateFilter,
-								shoppingCart,
-								setShoppingCart,
-								addItemToCart,
-						  })}
-				</main>
+				<main>{isMobile ? !cartOpen ? <ProductsView /> : null : <ProductsView />}</main>
 				<aside>
 					{cartOpen ? (
 						<Container

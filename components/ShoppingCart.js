@@ -14,7 +14,7 @@ export function ShoppingCart(p) {
 		//is not work
 	}, [shoppingCart]);
 	return (
-		<Style>
+		<Style className="TESTTESTTESTTEST">
 			<div className="container">
 				<div id="shopping_cart_top_section">
 					<h1>{shoppingCart ? shoppingCart.length + ' items' : ''} </h1>
@@ -86,6 +86,8 @@ const Style = styled.div`
 	width: 10rem;
 	bottom: 0;
 	right: 0;
+
+	z-index: 5;
 	.container {
 		width: 100%;
 		height: calc(100vh - 2rem);

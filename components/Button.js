@@ -56,7 +56,7 @@ const Style = styled.div`
 		height: 1rem;
 		font-size: 0.5rem;
 		position: relative;
-		z-index: 2;
+		z-index: 1;
 		line-height: 1rem;
 	}
 
@@ -93,7 +93,7 @@ const Style = styled.div`
 
 	&:hover {
 		&:before {
-			z-index: 2;
+			z-index: 1;
 			height: 0.8rem;
 			border-radius: 0;
 		}
@@ -102,7 +102,7 @@ const Style = styled.div`
 		&:after {
 			width: 100%;
 			border-radius: 0;
-			z-index: 1;
+			z-index: 0;
 		}
 	}
 

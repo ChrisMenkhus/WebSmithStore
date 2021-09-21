@@ -74,6 +74,7 @@ const Nav_Style = styled.div`
 			font-size: 0.9rem;
 		}
 		#nav_logo_container {
+			margin-right: 0.5rem;
 		}
 	}
 	@media only screen and (max-width: 1700px) {
