@@ -79,7 +79,7 @@ export default function ProductsView(p) {
 						Easy
 					</Button>
 				</Container>
-				<div id="products_display" wrap="wrap" direction="row" justify="left" align="left" margin="auto auto 5rem auto">
+				<Container id="products_display" wrap="wrap" direction="row" justify="left" align="left" margin="auto auto 5rem auto">
 					{filteredProducts
 						? filteredProducts.map((data, i) => {
 								return Card(data, formatToCurrency, (e) => {
@@ -99,7 +99,7 @@ export default function ProductsView(p) {
 								});
 						  })
 						: null}
-				</div>
+				</Container>
 			</Container>
 		</Container>
 	);
