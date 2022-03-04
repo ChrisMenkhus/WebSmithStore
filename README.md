@@ -1,8 +1,5 @@
 ## NEXTJS STRIPE PRISMIC VERCEL STORE
 
-Create a web app template with reusable components for deploying
-an ecommerce store to Vercel. Keep functions pure and intentions obvious.
-
 The web app is created with NextJs for Server Side Rendering.
 The API is a NextJs API Endpoint.
 The entire web app is hosted on Vercel.
